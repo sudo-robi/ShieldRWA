@@ -73,11 +73,83 @@ Our dashboard provides a high-fidelity view of the underlying assets, including 
 
 ---
 
+---
+
+## 📁 Project Structure
+
+```
+ShieldRWA/
+├── frontend/                    # React + Vite frontend application
+│   ├── components/              # React components (Modals, Dashboard, etc.)
+│   ├── pages/                   # Page components (Dashboard, Vaults, Reports, etc.)
+│   ├── layouts/                 # Layout wrappers
+│   ├── utils/                   # Utility functions (wagmi config, cn.js)
+│   ├── App.jsx                  # Main React component
+│   ├── main.jsx                 # React entry point
+│   ├── index.html               # HTML template
+│   ├── vite.config.js           # Vite configuration
+│   ├── tailwind.config.js       # Tailwind CSS config
+│   ├── package.json             # Frontend dependencies
+│   └── *.css                    # Styling files
+│
+├── src/
+│   └── contracts/               # Foundry smart contracts
+│       └── ComplianceVault.sol  # Main institutional vault contract
+│
+├── script/                      # Foundry deployment scripts
+│   ├── Deploy.s.sol             # Main deployment script
+│   └── DeployComplianceVault.s.sol
+│
+├── test/                        # Foundry test files
+│
+├── lib/                         # External dependencies
+│   ├── forge-std/               # Foundry standard library
+│   └── openzeppelin/            # OpenZeppelin contracts
+│
+├── foundry.toml                 # Foundry configuration
+├── README.md                    # This file
+└── ComplianceVault.json         # Contract ABI/deployment info
+```
+
+---
+
 ### Getting Started
 
-1.  **Clone**: `git clone https://github.com/your-repo/shieldrwa`
-2.  **Install**: `npm install --legacy-peer-deps`
-3.  **Env**: Add `PRIVATE_KEY` to `.env`.
-4.  **Launch**: `npm run dev`
+#### Frontend Development
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+#### Smart Contract Development
+```bash
+# Build contracts
+forge build
+
+# Run tests
+forge test
+
+# Deploy to Mantle Sepolia
+forge script script/DeployComplianceVault.s.sol --rpc-url https://rpc.sepolia.mantle.xyz --broadcast --verify
+```
+
+#### Environment Setup
+Create `.env` file with:
+```
+PRIVATE_KEY=your_private_key
+MANTLE_EXPLORER_KEY=your_explorer_api_key
+```
+
+---
+
+## 📊 Architecture Overview
+
+**ShieldRWA** combines:
+- **Smart Contract Layer**: Compliance-enforced vault with multi-role governance
+- **Frontend Layer**: React dashboard for institutional asset management
+- **Deployment Layer**: Foundry scripts for mainnet & testnet deployments
+
+---
 
 **SHIELDRWA: WHERE REGULATION MEETS PERFORMANCE.**

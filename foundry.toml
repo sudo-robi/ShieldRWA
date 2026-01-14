@@ -2,6 +2,8 @@
 src = "src/contracts"
 out = "out"
 libs = ["lib"]
+test = "test"
+script = "script"
 remappings = [
     "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
 ]
