@@ -111,8 +111,10 @@ export default function DashboardLayout() {
                 </header>
 
                 <div className="flex-1 overflow-y-auto p-4 md:p-8 relative">
-                    <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none"></div>
-                    <Outlet />
+                    <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none -z-10"></div>
+                    <div className="relative z-0">
+                        <Outlet />
+                    </div>
                 </div>
             </main>
         </div>
