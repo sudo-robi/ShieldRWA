@@ -3,7 +3,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Clock, AlertTriangle, AlertCircle, Check, ArrowRight, Shield } from 'lucide-react';
 import { useWriteContract, useWaitForTransactionReceipt, useAccount } from 'wagmi';
 import { parseEther } from 'viem';
-import ComplianceVaultABI from '../../../ComplianceVault.json';
+// ComplianceVault ABI
+const ComplianceVaultABI = [
+    {
+        "type": "function",
+        "name": "requestWithdrawal",
+        "inputs": [{"type": "uint256"}],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    }
+];
 
 const ASSETS = [
     { id: 'usdc', name: 'USDC', address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', balance: '24,500.00' },

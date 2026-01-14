@@ -33,8 +33,17 @@ const ToggleRow = ({ label, description, defaultChecked }) => (
 );
 
 import { useWriteContract, useAccount } from 'wagmi';
-import ComplianceVaultABI from '../../ComplianceVault.json';
 import { parseEther, stringToHex } from 'viem';
+
+const ComplianceVaultABI = [
+    {
+        "type": "function",
+        "name": "updateJurisdictionList",
+        "inputs": [{"type": "string[]"}],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    }
+];
 
 export default function PolicyEngine() {
     const { isConnected } = useAccount();

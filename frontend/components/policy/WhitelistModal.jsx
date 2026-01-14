@@ -2,7 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Shield, Plus, Trash2, Check, AlertCircle, ExternalLink } from 'lucide-react';
 import { useWriteContract, useWaitForTransactionReceipt, useAccount } from 'wagmi';
-import ComplianceVaultABI from '../../../ComplianceVault.json';
+// ComplianceVault ABI
+const ComplianceVaultABI = [
+    {
+        "type": "function",
+        "name": "updateWhitelist",
+        "inputs": [{"type": "address[]"}],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    }
+];
 
 export default function WhitelistModal({ isOpen, onClose }) {
     const { isConnected } = useAccount();

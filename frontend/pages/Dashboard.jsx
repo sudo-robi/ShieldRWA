@@ -59,8 +59,17 @@ const AssetRow = ({ asset, amount, value, apy, risk }) => (
 );
 
 import { useReadContract, useAccount } from 'wagmi';
-import ComplianceVaultABI from '../../ComplianceVault.json';
 import { formatEther } from 'viem';
+
+const ComplianceVaultABI = [
+    {
+        "type": "function",
+        "name": "totalRWAValue",
+        "inputs": [],
+        "outputs": [{"type": "uint256"}],
+        "stateMutability": "view"
+    }
+];
 
 export default function Dashboard() {
     const { isConnected } = useAccount();

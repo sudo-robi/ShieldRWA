@@ -3,7 +3,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronDown, Check, AlertCircle, Wallet, ExternalLink } from 'lucide-react';
 import { useWriteContract, useWaitForTransactionReceipt, useAccount } from 'wagmi';
 import { parseEther } from 'viem';
-import ComplianceVaultABI from '../../../ComplianceVault.json';
+// ComplianceVault ABI
+const ComplianceVaultABI = [
+    {
+        "type": "function",
+        "name": "deposit",
+        "inputs": [{"type": "uint256"}],
+        "outputs": [],
+        "stateMutability": "payable"
+    }
+];
 
 const VAULTS = [
     { id: 'tbill', name: 'US Treasury Bill Vault (3M)', apy: '5.2%', address: '0x1A2b...3c4D' },
