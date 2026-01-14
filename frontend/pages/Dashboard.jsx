@@ -166,14 +166,14 @@ export default function Dashboard() {
             </motion.div>
 
             {/* Grid of Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                 <StatsCard title="Total Net Assets" value="$42,893,000" subtext="Aggregate TVL across 4 pools" trend="+12.4%" icon={DollarSign} delay={0.1} />
                 <StatsCard title="Blended APY" value="7.42%" subtext="Weighted institutional yield" trend="+0.25%" icon={Activity} delay={0.2} />
                 <StatsCard title="Interest Income" value="$204,500" subtext="Total yield generated (MTD)" trend="+8.1%" icon={ArrowUpRight} delay={0.3} />
                 <StatsCard title="Active Vaults" value="04" subtext="Deployed regulatory smart accounts" icon={PieChart} delay={0.4} />
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 pb-12">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 pb-12">
                 {/* Performance Chart Placeholder */}
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
