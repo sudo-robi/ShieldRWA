@@ -11,28 +11,28 @@ const StatsCard = ({ title, value, subtext, trend, icon: Icon, delay }) => (
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay }}
-        className="glass-card p-6 border-white/5 hover:border-blue-500/20 transition-all group overflow-hidden relative"
+        className="glass-card p-4 md:p-6 border-white/5 hover:border-blue-500/20 transition-all group overflow-hidden relative min-h-[140px] md:min-h-[160px]"
     >
-        <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-            <Icon size={80} className="text-white" />
+        <div className="absolute top-0 right-0 p-2 md:p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+            <Icon size={60} className="text-white md:w-20 md:h-20" />
         </div>
-        <div className="flex items-center gap-4 mb-4">
-            <div className="p-3 rounded-xl bg-blue-600/10 text-blue-400">
-                <Icon size={24} />
+        <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
+            <div className="p-2 md:p-3 rounded-xl bg-blue-600/10 text-blue-400">
+                <Icon size={20} className="md:w-6 md:h-6" />
             </div>
-            <div>
-                <h3 className="text-gray-500 text-xs font-bold uppercase tracking-widest">{title}</h3>
-                <div className="flex items-center gap-2">
-                    <span className="text-2xl font-black text-white font-display tracking-tight uppercase leading-none mt-1">{value}</span>
+            <div className="flex-1 min-w-0">
+                <h3 className="text-gray-500 text-xs font-bold uppercase tracking-widest truncate">{title}</h3>
+                <div className="flex items-center gap-2 mt-1">
+                    <span className="text-lg md:text-2xl font-black text-white font-display tracking-tight uppercase leading-none truncate">{value}</span>
                     {trend && (
-                        <span className="text-emerald-400 text-xs font-bold flex items-center bg-emerald-500/10 px-1.5 py-0.5 rounded">
+                        <span className="text-emerald-400 text-xs font-bold flex items-center bg-emerald-500/10 px-1.5 py-0.5 rounded flex-shrink-0">
                             {trend}
                         </span>
                     )}
                 </div>
             </div>
         </div>
-        <p className="text-gray-500 text-[10px] font-bold uppercase tracking-tight">{subtext}</p>
+        <p className="text-gray-500 text-[10px] font-bold uppercase tracking-tight line-clamp-2">{subtext}</p>
     </motion.div>
 );
 
@@ -97,35 +97,38 @@ export default function Dashboard() {
     };
 
     return (
-        <div className="space-y-8 max-w-7xl mx-auto">
+        <div className="space-y-6 md:space-y-8 max-w-7xl mx-auto">
             {/* Page Header */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-2">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-6 pb-2">
                 <div>
-                    <h1 className="text-4xl font-black text-white tracking-tight font-display uppercase leading-none">Net Asset View</h1>
-                    <div className="flex items-center gap-2 mt-2 text-gray-500 text-sm font-bold uppercase tracking-widest">
+                    <h1 className="text-2xl md:text-4xl font-black text-white tracking-tight font-display uppercase leading-none">Net Asset View</h1>
+                    <div className="flex items-center gap-2 mt-2 text-gray-500 text-xs md:text-sm font-bold uppercase tracking-widest">
                         <Activity className="w-3 h-3 text-emerald-500" /> Real-Time Portfolio Scrutiny
                     </div>
                 </div>
-                <div className="flex gap-3">
+                <div className="flex gap-2 md:gap-3 flex-wrap">
                     <button
                         onClick={handleExport}
                         disabled={isExporting}
-                        className="px-4 py-2 bg-white/5 hover:bg-white/10 text-white rounded-lg border border-white/10 text-sm font-medium transition-all flex items-center gap-2"
+                        className="px-3 md:px-4 py-2 bg-white/5 hover:bg-white/10 text-white rounded-lg border border-white/10 text-xs md:text-sm font-medium transition-all flex items-center gap-2"
                     >
                         {isExporting ? <Loader2 className="w-4 h-4 animate-spin" /> : exportSuccess ? <CheckCircle className="w-4 h-4 text-emerald-500" /> : <Download className="w-4 h-4" />}
-                        {isExporting ? 'Exporting...' : exportSuccess ? 'Downloaded' : 'Export CSV'}
+                        <span className="hidden sm:inline">{isExporting ? 'Exporting...' : exportSuccess ? 'Downloaded' : 'Export CSV'}</span>
+                        <span className="sm:hidden text-xs">{isExporting ? '...' : exportSuccess ? '✓' : 'CSV'}</span>
                     </button>
                     <button
                         onClick={() => setIsWithdrawModalOpen(true)}
-                        className="px-4 py-2 bg-white/5 hover:bg-amber-500/10 text-amber-500 border border-amber-500/20 rounded-lg text-sm font-medium transition-all"
+                        className="px-3 md:px-4 py-2 bg-white/5 hover:bg-amber-500/10 text-amber-500 border border-amber-500/20 rounded-lg text-xs md:text-sm font-medium transition-all"
                     >
-                        Withdraw Funds
+                        <span className="hidden sm:inline">Withdraw</span>
+                        <span className="sm:hidden">Out</span>
                     </button>
                     <button
                         onClick={() => setIsDepositModalOpen(true)}
-                        className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-sm font-medium shadow-lg shadow-blue-500/25 transition-all"
+                        className="px-3 md:px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs md:text-sm font-medium shadow-lg shadow-blue-500/25 transition-all"
                     >
-                        New Deposit
+                        <span className="hidden sm:inline">New Deposit</span>
+                        <span className="sm:hidden">Deposit</span>
                     </button>
                 </div>
             </div>
