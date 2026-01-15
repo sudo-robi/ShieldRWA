@@ -4,7 +4,57 @@
 
 ---
 
-## 🏛 The $10T Problem: Why Institutions Are "Locked Out"
+## Compliance Declaration
+Regulated Assets Disclosure: ShieldRWA involves and manages regulated assets.
+
+The project provides institutional-grade tokenization and settlement for the following asset classes:
+
+US Treasury Bills (S-BILL): 3-Month sovereign debt, valued via Chainlink (Live).
+Corporate Bonds (S-TECH): Investment-grade debt (e.g., Apple), valued via Pyth Network.
+Invoice Factoring (S-INV4): SME trade receivables, valued via Trabal Attestations.
+Commercial Real Estate (S-REIT): Luxury property yields (Miami), valued via EstatePro Oracle.
+Compliance Framework: ShieldRWA is built on a "Policy-Driven" architecture. It implements mandatory on-chain compliance controls via the ComplianceVault smart account:
+
+KYC/AML Registry: Entry gatekeeping where all users must pass identity verification before interacting with deposit or requestWithdrawal functions.
+Jurisdictional Fencing: Real-time bytecode-level blocking and whitelisting (e.g., North Korea, Iran, Russia) via the restrictedJurisdictions mapping.
+Tri-Layered Execution Pipeline: All withdrawals require (1) User Request, (2) COMPLIANCE_ROLE approval, and (3) OPS_ROLE finalization after a 24-hour mandatory timelock.
+
+
+
+
+ ## One-Pager Pitch: ShieldRWA
+The Problem: The $10T Institutional Lockdown
+Regulated entities face four systemic barriers that make standard DeFi unusable:
+
+Direct Custody Violations: Risk of "God Mode" admin keys rugging the treasury.
+The Compliance Black Hole: Legal liability for sanction contamination (OFAC).
+The Accounting Vacuum: Lack of GAAP-compliant reporting and ledger snapshots.
+Capital Destruction: Emerging market erosion due to local currency devaluation and lack of USD yield access.
+The Solution: The Guardian Architecture
+ShieldRWA (built on Mantle Network) is a policy-enforced settlement engine that replaces human trust with Programmable Policy:
+
+Programmable Custody: Our multi-role pipeline (GOV, OPS, CMP) ensures funds can ONLY be settled back to the original authorized account after regulatory sign-off.
+NAV-Based Share Minting: Dynamic issuance tied to real-time valuation of both on-chain liquidity (USDC) and off-chain assets (RWA).
+GAAP Ledger Generation: Built-in "Institutional Financial Inventory" that exports on-chain events into QuickBooks (.QBO), Monthly Statements (PDF), and Tax Form 1099 formats.
+
+## Business Model
+ShieldRWA operates on a sustainable institutional fee structure:
+
+AUM Fee: Annual management fee (e.g., 0.5% - 1.5%) on Total Value Locked (TVL).
+Withdrawal Fee: A default 10 bps (0.1%) fee on all settlements (capped at 5%).
+Performance Fee: A carry percentage on yield generated above benchmarks.
+Platform Licensing: Licensing the policy-driven smart account infrastructure to private institutional sub-networks.
+
+## Roadmap
+Q1 2026 (Launch Phase): Deployment on Mantle Mainnet with initial S-BILL and S-REIT vaults.
+Q2 2026 (Asset Expansion): Underwriting for S-GOLD (Physical Gold) and S-SOLAR (Solar Farm Yield Fund).
+Q3 2026 (Regional Scaling): Launching liquidity bridges for LATAM and SE Asia, focusing on logistics finance.
+Q4 2026 (Fiat Integration): Direct settlement into traditional banking rails for instant institutional off-ramping.
+
+
+
+
+## The $10T Problem: Why Institutions Are "Locked Out"
 
 Regulated entities (Neobanks, Fund Managers, Corporate Treasuries) face four systemic barriers that make standard DeFi unusable:
 
